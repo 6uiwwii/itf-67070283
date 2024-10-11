@@ -1,0 +1,44 @@
+
+.profile
+{
+    width: 183px;
+    height: 183px;
+    background-image: url(https://www.quotev.com/quizi/12894798/2/1597603900);
+    border-radius: 50%;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+.notify
+{
+    width: 30px;
+    height: 30px;
+    background-color: rgb(233, 160, 50);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom : 15px;
+    right : 15px;
+}
+.pf{
+    width: 100%;
+    justify-items: center;
+    display: grid;
+}
+body{
+    background-color: rgb(122, 175, 255);
+}
+table{
+    width: 100%;
+    text-align: center;
+    
+}
+.ming:hover {
+    color: rgb(0, 0, 104);
+
+}
+.ming{
+    color: rgb(192, 115, 0);
+}
