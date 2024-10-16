@@ -7,59 +7,93 @@
     <link rel="stylesheet" href="style2.css">
 </head>
 <body>
+    <div class="khobbon">
+    </div>
     <div class="pf">
-        <a href="https://www.instagram.com/_.6uiw/"><h1 id="username" class="ming">someone's book</h1></a>
+        <a href="https://www.instagram.com/_.6uiw/"><h1 id="username" class="ming">Saichon Chaimoon 67070283</h1></a>
         <div class="profile" id="profile">
             <div class="notify">
                 <p>1</p>
+            </div>
         </div>
-        </div>
-    <label>Set username</label><input id="input-name" type="text"><button onclick="setName()">set</button>
-    <label>Set profile</label><input id="input-url" type="text"><button onclick="setImg()">set</button>
+    <div class="name-sort">
+        <label>Set username</label>
+        <input id="input-name" type="text">
+        <button onclick="setName()">set</button>
+    </div>
+    <div class="profile-sort">
+    <label>Set profile</label>
+    <input id="input-url" type="text">
+    <button onclick="setImg()">set</button>
+    </div>
     </div>
     <div class="add_title">
         <h2>Phone Number List</h2>
     </div>
     <div class="add_lst">
+        <div class="add-lst-sort">
         <input type="text" id="cell1">
         <input type="text" id="cell2">
         <button onclick="addRow()">add</button>
         <button onclick="saveCSV()">export</button>
+        </div>
     </div>
     
     <table id="table">
-        <tr>
-            <th>name</th>
-            <th>phone</th>
-        </tr>
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>name</th>
+                <th>phone</th>
+            </tr>
+        </thead>
     </table>
-    
+    <footer>
+        <div class="langsud">
+            <p>made by 67070283 Saichon Chaimoon</p>
+        </div>
+    </footer>
     <script>
         const name = document.getElementById("username");
         const inputName = document.getElementById("input-name");
         const profile = document.getElementById("profile");
         const inputUrl = document.getElementById("input-url");
         const table = document.getElementById("table")
+        let count = 0;
+        var phonenumber = [];
 
         function setName(){
             name.textContent = inputName.value + "'s Phone Book";
             inputName.value = "";
-        }
+        };
         function setImg(){
             profile.style.backgroundImage = "url(" + inputUrl.value;
-        }
+        };
         function addRow(){
+            count += 1;
             const row = document.createElement("tr");
-            const cell1 = document.createElement("td");
-            const cell2 = document.createElement("td");
-            cell1.textContent = document.getElementById("cell1").value;
-            cell2.textContent = document.getElementById("cell2").value;
-            row.appendChild(cell1);
-            row.appendChild(cell2);
+            const cellNo = document.createElement("td");
+            const cellName = document.createElement("td");
+            const cellTel = document.createElement("td");
+            cellNo.textContent = count;
+            cellName.textContent = document.getElementById("cell1").value;
+            cellTel.textContent = document.getElementById("cell2").value;
+            row.appendChild(cellNo);
+            row.appendChild(cellName);
+            row.appendChild(cellTel);
+            const table = document.getElementById("table");
             table.appendChild(row);
-            document.getElementById("cell1").value = "" ;
-            document.getElementById("cell2").value = "" ;
-        }
+            
+            let arr = [];
+            arr.push(count);
+            arr.push(document.getElementById("cell1").value);
+            arr.push(document.getElementById("cell2").value);
+            phonenumber.push(arr);
+            console.log(phonenumber);
+            
+            document.getElementById("cell1").value = "";
+            document.getElementById("cell2").value = "";
+        };
         function saveCSV() {
             const csvContent = phonenumber.map(row => row.join(",")).join("\n"); // Convert array to CSV string
             const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
@@ -71,7 +105,7 @@
             document.body.appendChild(link);
             link.click();
            document.body.removeChild(link);
-        }
+        };
     </script>
 </body>
 </html>
