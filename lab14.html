@@ -39,16 +39,15 @@
             <button onclick="saveCSV()">export</button>
         </div>
     </div>
-    
-    <table id="table">
-        <thead>
-            <tr>
-                <th>No.</th>
-                <th>name</th>
-                <th>phone</th>
-            </tr>
-        </thead>
-    </table>
+    <div class="tb">
+        <table id="table">
+                <tr>
+                    <th>No.</th>
+                    <th>name</th>
+                    <th>phone</th>
+                </tr>
+        </table>
+    </div>
     <footer>
         <div class="langsud">
             <p>made by 67070283 Saichon Chaimoon</p>
@@ -61,7 +60,7 @@
         const inputUrl = document.getElementById("input-url");
         const table = document.getElementById("table")
         let count = 0;
-        var phonenumber = [];
+        var phonenumber = [["No.","Name","Phonenumber"]];
 
         function setName(){
             name.textContent = inputName.value + "'s Phone Book";

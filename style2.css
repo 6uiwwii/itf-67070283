@@ -130,3 +130,12 @@ th{
     background-color: #1f487e;
     color: #ffffff;
 }
+table{
+    
+    width: 50%;
+}
+.tb{
+    justify-content: center;
+    flex-direction: row;
+    display: flex;
+}
